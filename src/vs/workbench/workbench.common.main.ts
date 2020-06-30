@@ -485,4 +485,7 @@ import 'sql/workbench/contrib/extensions/browser/extensions.contribution';
 // Azure
 import 'sql/workbench/contrib/azure/browser/azure.contribution';
 
+// Files
+// import 'sql/workbench/contrib/files/browser/fileActions.contribution';
+
 //#endregion

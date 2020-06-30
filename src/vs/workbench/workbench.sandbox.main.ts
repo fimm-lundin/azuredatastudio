@@ -58,4 +58,7 @@ import 'vs/workbench/contrib/debug/electron-sandbox/extensionHostDebugService';
 // Telemetry Opt Out
 import 'vs/workbench/contrib/welcome/telemetryOptOut/electron-sandbox/telemetryOptOut.contribution';
 
+// files
+import 'sql/workbench/contrib/files/electron-sandbox/fileActions.contribution';
+
 //#endregion

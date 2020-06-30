@@ -369,17 +369,17 @@ export class ProjectsController {
 		}
 	}
 
+	private getProjectEntry(project: Project, context: BaseProjectTreeItem): ProjectEntry | undefined {
+		return project.files.find(x => utils.getPlatformSafeFileEntryPath(x.relativePath) === utils.getPlatformSafeFileEntryPath(utils.trimUri(context.root.uri, context.uri)));
+	}
+
 	/**
 	 * Opens the folder containing the project
 	 * @param context a treeItem in a project's hierarchy, to be used to obtain a Project
 	 */
 	public async openContainingFolder(context: BaseProjectTreeItem): Promise<void> {
 		const project = this.getProjectFromContext(context);
-		await this.apiWrapper.executeCommand('workbench.action.files.revealActiveFileInWindows', project.projectFilePath);
-	}
-
-	private getProjectEntry(project: Project, context: BaseProjectTreeItem): ProjectEntry | undefined {
-		return project.files.find(x => utils.getPlatformSafeFileEntryPath(x.relativePath) === utils.getPlatformSafeFileEntryPath(utils.trimUri(context.root.uri, context.uri)));
+		await this.apiWrapper.executeCommand('revealFileInOSSqlProj', Uri.parse(project.projectFilePath));
 	}
 
 	/**
