@@ -17,7 +17,7 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 	id: REVEAL_IN_OS_COMMAND_ID,
 	weight: KeybindingWeight.WorkbenchContrib,
 	when: undefined,
-	handler: (accessor: ServicesAccessor, resource: URI | object) => {
-		revealResourcesInOS(<URI>resource, accessor.get(IElectronService), accessor.get(INotificationService), accessor.get(IWorkspaceContextService));
+	handler: (accessor: ServicesAccessor, resource: URI) => {
+		revealResourcesInOS(resource, accessor.get(IElectronService), accessor.get(INotificationService), accessor.get(IWorkspaceContextService));
 	}
 });

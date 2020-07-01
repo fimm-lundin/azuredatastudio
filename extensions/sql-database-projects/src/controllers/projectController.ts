@@ -379,7 +379,7 @@ export class ProjectsController {
 	 */
 	public async openContainingFolder(context: BaseProjectTreeItem): Promise<void> {
 		const project = this.getProjectFromContext(context);
-		await this.apiWrapper.executeCommand('revealFileInOSSqlProj', Uri.parse(project.projectFilePath));
+		await this.apiWrapper.executeCommand('revealFileInOSSqlProj', Uri.file(project.projectFilePath));
 	}
 
 	/**
