@@ -9,15 +9,15 @@ import { INotificationService } from 'vs/platform/notification/common/notificati
 import { IElectronService } from 'vs/platform/electron/electron-sandbox/electron';
 import { KeybindingsRegistry, KeybindingWeight } from 'vs/platform/keybinding/common/keybindingsRegistry';
 import { ServicesAccessor } from 'vs/platform/instantiation/common/instantiation';
-import { revealResourcesInOS } from './fileCommands';
+import { revealResourcesInOS } from 'vs/workbench/contrib/files/electron-sandbox/fileCommands';
 
-const REVEAL_IN_OS_COMMAND_ID = 'revealFileInOSSqlProj';
+const REVEAL_IN_OS_COMMAND_ID = 'revealSingleFileInOS';
 
 KeybindingsRegistry.registerCommandAndKeybindingRule({
 	id: REVEAL_IN_OS_COMMAND_ID,
 	weight: KeybindingWeight.WorkbenchContrib,
 	when: undefined,
 	handler: (accessor: ServicesAccessor, resource: URI) => {
-		revealResourcesInOS(resource, accessor.get(IElectronService), accessor.get(INotificationService), accessor.get(IWorkspaceContextService));
+		revealResourcesInOS([resource], accessor.get(IElectronService), accessor.get(INotificationService), accessor.get(IWorkspaceContextService));
 	}
 });
